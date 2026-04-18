@@ -1,5 +1,7 @@
 #include "transforms/Debouncer.hpp"
 
+#include <limits>
+
 Debouncer::Debouncer(unsigned long debounce_ms) : debounce_ms_(debounce_ms) {}
 
 bool Debouncer::update(bool raw_value) {
@@ -10,7 +12,12 @@ bool Debouncer::update(bool raw_value) {
     changed_at_ms_ = now;
   }
 
-  if ((now - changed_at_ms_) >= debounce_ms_) {
+  const unsigned long elapsed =
+      now >= changed_at_ms_
+          ? (now - changed_at_ms_)
+          : (std::numeric_limits<unsigned long>::max() - changed_at_ms_) + now +
+                1UL;
+  if (elapsed >= debounce_ms_) {
     stable_value_ = last_raw_value_;
   }
 
