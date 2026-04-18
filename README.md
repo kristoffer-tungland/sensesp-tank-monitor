@@ -26,8 +26,8 @@ ESP32-C3 Super Mini, then publishing telemetry to a Signal K server.
 
 Edit `/src/config/CalibrationConfig.hpp`:
 
-- `empty_current_forward` / `full_current_forward`
-- `empty_current_port` / `full_current_port`
+- `kEmptyCurrentForward` / `kFullCurrentForward`
+- `kEmptyCurrentPort` / `kFullCurrentPort`
 
 Level values are normalized to `0.0 .. 1.0` with clamping.
 
