@@ -13,11 +13,11 @@ using namespace sensesp;
 
 ReactESP app;
 
-TankLevelReader forward_tank_reader(0x40, config::empty_current_forward,
-                                    config::full_current_forward,
+TankLevelReader forward_tank_reader(0x40, config::kEmptyCurrentForward,
+                                    config::kFullCurrentForward,
                                     config::kLevelAverageSamples);
-TankLevelReader port_tank_reader(0x41, config::empty_current_port,
-                                 config::full_current_port,
+TankLevelReader port_tank_reader(0x41, config::kEmptyCurrentPort,
+                                 config::kFullCurrentPort,
                                  config::kLevelAverageSamples);
 TankSelector tank_selector(config::kTankSelectorPin, config::kDebounceMs);
 BilgeMonitor bilge_monitor(config::kBilgeFloatPin, config::kDebounceMs);

@@ -17,10 +17,10 @@ constexpr uint32_t kSwitchReadIntervalMs = 100;
 constexpr uint32_t kDebounceMs = 75;
 constexpr size_t kLevelAverageSamples = 5;
 
-constexpr float empty_current_forward = 4.0F;
-constexpr float full_current_forward = 20.0F;
-constexpr float empty_current_port = 4.0F;
-constexpr float full_current_port = 20.0F;
+constexpr float kEmptyCurrentForward = 4.0F;
+constexpr float kFullCurrentForward = 20.0F;
+constexpr float kEmptyCurrentPort = 4.0F;
+constexpr float kFullCurrentPort = 20.0F;
 
 }  // namespace config
 
