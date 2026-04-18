@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#include <memory>
+
 #include "config/CalibrationConfig.hpp"
 #include "outputs/SignalKOutputs.hpp"
 #include "sensesp/sensesp.h"
@@ -21,13 +23,13 @@ TankLevelReader port_tank_reader(0x41, config::kEmptyCurrentPort,
                                  config::kLevelAverageSamples);
 TankSelector tank_selector(config::kTankSelectorPin, config::kDebounceMs);
 BilgeMonitor bilge_monitor(config::kBilgeFloatPin, config::kDebounceMs);
-SignalKOutputs* signalk_outputs = nullptr;
+std::unique_ptr<SignalKOutputs> signalk_outputs;
 
 void setup() {
   SetupSerialDebug(115200);
 
   sensesp_app = SensESPAppBuilder().set_hostname("sensesp-tank-monitor").get_app();
-  signalk_outputs = new SignalKOutputs();
+  signalk_outputs = std::make_unique<SignalKOutputs>();
 
   Wire.begin(config::kI2cSdaPin, config::kI2cSclPin);
 
