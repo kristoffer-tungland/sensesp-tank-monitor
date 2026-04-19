@@ -15,6 +15,13 @@ ESP32-C3 Super Mini, then publishing telemetry to a Signal K server.
   - `LOW` => water detected
   - `HIGH` => dry bilge
 
+### ESP32-C3 pin mapping
+
+- `GPIO8`: I2C SDA (INA219 bus)
+- `GPIO9`: I2C SCL (INA219 bus)
+- `GPIO2`: Reed switch (tank selector, `INPUT_PULLUP`)
+- `GPIO3`: Float switch (bilge, `INPUT_PULLUP`)
+
 ## Signal K paths
 
 - `tanks.freshWater.forward.currentLevel`
