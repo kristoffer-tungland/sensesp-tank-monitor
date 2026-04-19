@@ -22,6 +22,12 @@ constexpr float kFullCurrentForward = 20.0F;
 constexpr float kEmptyCurrentPort = 4.0F;
 constexpr float kFullCurrentPort = 20.0F;
 
+// SignalK paths
+constexpr const char* kForwardLevelPath = "tanks.freshWater.forward.currentLevel";
+constexpr const char* kPortLevelPath = "tanks.freshWater.port.currentLevel";
+constexpr const char* kSelectedTankPath = "tanks.freshWater.selectedTank";
+constexpr const char* kBilgeWaterPath = "environment.bilge.waterDetected";
+
 }  // namespace config
 
 #endif
