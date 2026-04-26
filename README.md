@@ -17,10 +17,12 @@ ESP32-C3 Super Mini, then publishing telemetry to a Signal K server.
 
 ### ESP32-C3 pin mapping
 
-- `GPIO8`: I2C SDA (INA219 bus)
-- `GPIO9`: I2C SCL (INA219 bus)
-- `GPIO2`: Reed switch (tank selector, `INPUT_PULLUP`)
-- `GPIO3`: Float switch (bilge, `INPUT_PULLUP`)
+- `GPIO4`: I2C SDA (INA219 bus)
+- `GPIO5`: I2C SCL (INA219 bus)
+- `GPIO2`: Reed switch (tank selector, `INPUT_PULLUP`) — strapping pin, must be HIGH at boot; safe with normally-open switch
+- `GPIO3`: Float switch (bilge, `INPUT_PULLUP`) — shares UART0 RX; safe since USB-serial uses GPIO20/21
+
+> **Note:** GPIO8 is the built-in blue LED (active LOW). GPIO9 is the BOOT strapping pin. Neither is suitable for I2C.
 
 ## Signal K paths
 
