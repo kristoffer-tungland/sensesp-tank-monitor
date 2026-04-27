@@ -6,7 +6,7 @@
 
 namespace config {
 
-constexpr uint8_t kTankSelectorPin = 2;
+constexpr uint8_t kTankSelectorPin = 0;
 constexpr uint8_t kBilgeFloatPin = 3;
 
 constexpr uint8_t kI2cSdaPin = 4;
